@@ -1,0 +1,455 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: lampralexandros@gmail.com
+  description: This is a sample openApi document
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://wabli.netlify.app/
+  title: TempApi
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+- description: miniature-parakeet
+  url: http://83.212.100.226:3002/v1
+security:
+- {}
+tags:
+- description: not yet ready
+  name: nft
+- description: not yet ready
+  name: categorynft
+- description: not yet ready
+  name: user
+paths:
+  /nft:
+    post:
+      operationId: createnft
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/nft'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nft'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - nft
+      x-eov-operation-handler: controllers/NftController
+  /nft/{nftId}:
+    delete:
+      operationId: deletenft
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: nftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - nft
+      x-eov-operation-handler: controllers/NftController
+    get:
+      operationId: getnft
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: nftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nft'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - nft
+      x-eov-operation-handler: controllers/NftController
+    put:
+      operationId: updatenft
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: nftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/nft'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nft'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - nft
+      x-eov-operation-handler: controllers/NftController
+  /nft/getAll:
+    get:
+      operationId: getAllnft
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/nft'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - nft
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/NftController
+  /categorynft:
+    post:
+      operationId: createcategorynft
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/categorynft'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/categorynft'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - categorynft
+      x-eov-operation-handler: controllers/CategorynftController
+  /categorynft/{categorynftId}:
+    delete:
+      operationId: deletecategorynft
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: categorynftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - categorynft
+      x-eov-operation-handler: controllers/CategorynftController
+    get:
+      operationId: getcategorynft
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: categorynftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/categorynft'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - categorynft
+      x-eov-operation-handler: controllers/CategorynftController
+    put:
+      operationId: updatecategorynft
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: categorynftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/categorynft'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/categorynft'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - categorynft
+      x-eov-operation-handler: controllers/CategorynftController
+  /categorynft/getAll:
+    get:
+      operationId: getAllcategorynft
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/categorynft'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - categorynft
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/CategorynftController
+  /user:
+    post:
+      operationId: createuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+  /user/{userId}:
+    delete:
+      operationId: deleteuser
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+    get:
+      operationId: getuser
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+    put:
+      operationId: updateuser
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+  /user/getAll:
+    get:
+      operationId: getAlluser
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/user'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - user
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/UserController
+components:
+  schemas:
+    nft:
+      example:
+        NFTdescription: NFTdescription
+        UserNFTs:
+        - ""
+        - ""
+        NFTtitle: NFTtitle
+        _id: _id
+        NFTprice: 0.8008281904610115
+        titleNFT: titleNFT
+        NFTimage:
+          data: data
+          name: name
+        NFTCategory: ""
+      properties:
+        _id:
+          type: string
+        NFTtitle:
+          type: string
+        NFTimage:
+          $ref: '#/components/schemas/nft_NFTimage'
+        NFTdescription:
+          type: string
+        NFTCategory:
+          oneOf:
+          - $ref: '#/components/schemas/categorynft'
+          - type: string
+          x-one-of-name: categorynft
+        NFTprice:
+          format: double
+          type: number
+        UserNFTs:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/nft'
+            - type: string
+            x-one-of-name: nft
+          type: array
+        titleNFT:
+          type: string
+      required:
+      - NFTCategory
+      - NFTdescription
+      - NFTimage
+      - NFTprice
+      - NFTtitle
+      - UserNFTs
+      - titleNFT
+      type: object
+    categorynft:
+      example:
+        titleCategoryNFT: titleCategoryNFT
+        NFTCategorydescription: NFTCategorydescription
+        _id: _id
+        NFTCategory: ""
+      properties:
+        _id:
+          type: string
+        titleCategoryNFT:
+          type: string
+        NFTCategorydescription:
+          type: string
+        NFTCategory:
+          oneOf:
+          - $ref: '#/components/schemas/categorynft'
+          - type: string
+          x-one-of-name: categorynft
+      required:
+      - NFTCategory
+      - NFTCategorydescription
+      - titleCategoryNFT
+      type: object
+    user:
+      example:
+        Username: Username
+        _id: _id
+        userProfile:
+          data: data
+          name: name
+        BioUser: BioUser
+      properties:
+        _id:
+          type: string
+        Username:
+          type: string
+        userProfile:
+          $ref: '#/components/schemas/nft_NFTimage'
+        BioUser:
+          type: string
+      required:
+      - BioUser
+      - Username
+      - userProfile
+      type: object
+    nft_NFTimage:
+      example:
+        data: data
+        name: name
+      properties:
+        data:
+          type: string
+        name:
+          type: string
+      type: object
+      x-isSchemaOnly: "true"
