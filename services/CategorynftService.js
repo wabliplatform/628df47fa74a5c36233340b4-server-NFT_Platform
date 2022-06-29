@@ -51,7 +51,7 @@ const getAllcategorynft = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await Categorynft.find().populate(['NFTCategory']).exec();
+      query = await Categorynft.find().exec();
       resolve(Service.successResponse(query));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -72,7 +72,7 @@ const getcategorynft = ({ categorynftId }) => new Promise(
     try {
       let query = {};
       query = await Categorynft.findById(categorynftId)
-      .populate(['NFTCategory']).exec();
+      .exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(

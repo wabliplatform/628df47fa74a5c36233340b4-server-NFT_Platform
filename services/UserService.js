@@ -51,7 +51,7 @@ const getAlluser = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await User.find().exec();
+      query = await User.find().populate(['UserNFTs']).exec();
       resolve(Service.successResponse(query));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -72,7 +72,7 @@ const getuser = ({ userId }) => new Promise(
     try {
       let query = {};
       query = await User.findById(userId)
-      .exec();
+      .populate(['UserNFTs']).exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(

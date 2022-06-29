@@ -9,16 +9,7 @@ Underscoreid:String ,
 titleCategoryNFT:String , 
 
 
-NFTCategorydescription:String , 
-
-
-NFTCategory:  
-  {
-    type: Schema.Types.ObjectId,
-    ref:'categorynft'
-  }
-
- 
+NFTCategorydescription:String 
 
 
 

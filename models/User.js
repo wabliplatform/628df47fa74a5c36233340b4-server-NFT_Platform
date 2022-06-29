@@ -15,7 +15,18 @@ NftNFTimageSchema
  , 
 
 
-BioUser:String 
+BioUser:String , 
+
+
+
+
+ UserNFTs: [ 
+  {
+    type: Schema.Types.ObjectId,
+    ref:'nft'
+  }
+
+]
 
 
 
