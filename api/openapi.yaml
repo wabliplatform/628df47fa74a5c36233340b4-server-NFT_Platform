@@ -13,8 +13,8 @@ externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
 servers:
-- description: miniature-parakeet
-  url: http://83.212.100.226:3002/v1
+- description: wabli-contest-62206
+  url: http://83.212.100.226:3006/v1
 security:
 - {}
 tags:
@@ -402,7 +402,6 @@ components:
         titleCategoryNFT: titleCategoryNFT
         NFTCategorydescription: NFTCategorydescription
         _id: _id
-        NFTCategory: ""
       properties:
         _id:
           type: string
@@ -410,19 +409,16 @@ components:
           type: string
         NFTCategorydescription:
           type: string
-        NFTCategory:
-          oneOf:
-          - $ref: '#/components/schemas/categorynft'
-          - type: string
-          x-one-of-name: categorynft
       required:
-      - NFTCategory
       - NFTCategorydescription
       - titleCategoryNFT
       type: object
     user:
       example:
         Username: Username
+        UserNFTs:
+        - ""
+        - ""
         _id: _id
         userProfile:
           data: data
@@ -437,8 +433,16 @@ components:
           $ref: '#/components/schemas/nft_NFTimage'
         BioUser:
           type: string
+        UserNFTs:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/nft'
+            - type: string
+            x-one-of-name: nft
+          type: array
       required:
       - BioUser
+      - UserNFTs
       - Username
       - userProfile
       type: object
